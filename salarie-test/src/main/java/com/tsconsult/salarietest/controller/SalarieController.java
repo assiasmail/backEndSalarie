@@ -16,6 +16,9 @@ import com.tsconsult.salarietest.service.SalarieService;
 
 @RestController
 public class SalarieController {
+
+	// Il faut remonter que les Exceptions functionnelles "FunctionalException" au lieu d'Exception.
+	// Ajoutes SWAGGER pour mieux documenter tes API.
 	
 	@Autowired
 	private SalarieService salarieService;

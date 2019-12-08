@@ -7,7 +7,10 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.tsconsult.salarietest.model.Salarie;
-
+// Ce bout de code ressemble étrangement a celui de Mr Sadoud avec les même erreurs, alors qu'on peut le solutionner de plusieurs maniere ...
+// Essaies de faire avec un SWITCH et des énumétations.
+// Le throws Exception ne sert à rien ici.
+// d'une manière général les exceptions sont très mal gérées.
 
 @Service
 public class SalarieServiceImpl implements SalarieService{

@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+// Mets cette class ds un package à part.
+// Ajout une class FunctionalException ou customException, qui hérite de RuntimeException par EX, car pas besoin de monter jusqu'a Exception.
+
 public class SalarieExceptionHandler extends ResponseEntityExceptionHandler{
 	
 	@ExceptionHandler({Exception.class})
