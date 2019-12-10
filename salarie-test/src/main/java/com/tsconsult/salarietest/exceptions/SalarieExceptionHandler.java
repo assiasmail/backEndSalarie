@@ -1,4 +1,4 @@
-package com.tsconsult.salarietest.controller;
+package com.tsconsult.salarietest.exceptions;
 
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -12,7 +12,7 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 
 public class SalarieExceptionHandler extends ResponseEntityExceptionHandler{
 	
-	@ExceptionHandler({Exception.class})
+	@ExceptionHandler({FunctionalException.class})
     protected ResponseEntity<?> exceptionHandler(Exception ex, WebRequest request){
         String bodyResponse = "Internal Server Error";
         System.out.println("Exception : " + ex.getMessage());

@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tsconsult.salarietest.exceptions.FunctionalException;
 import com.tsconsult.salarietest.model.Salarie;
 import com.tsconsult.salarietest.service.SalarieService;
+import com.tsconsult.salarietest.service.SalarieServiceImpl.Critere;
 
 @RestController
 public class SalarieController {
@@ -24,7 +26,8 @@ public class SalarieController {
 	private SalarieService salarieService;
 
 	@PostMapping("/filtreSalarie")
-	public ResponseEntity<List<Salarie>> filtreSalarie(@RequestBody List<Salarie> salaries, @RequestParam String critere) throws Exception{
-		return new ResponseEntity<List<Salarie>>(salarieService.filtreSalaries(salaries,critere), HttpStatus.OK);
+	public ResponseEntity<List<Salarie>> filtreSalarie(@RequestBody List<Salarie> salaries, @RequestParam String critere) throws FunctionalException{
+		System.out.println(critere);
+		return new ResponseEntity<List<Salarie>>(salarieService.filtreSalaries(salaries, critere), HttpStatus.OK);
 	}
 }
