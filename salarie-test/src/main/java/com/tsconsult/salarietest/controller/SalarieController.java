@@ -19,7 +19,6 @@ import com.tsconsult.salarietest.service.SalarieServiceImpl.Critere;
 @RestController
 public class SalarieController {
 
-	// Il faut remonter que les Exceptions functionnelles "FunctionalException" au lieu d'Exception.
 	// Ajoutes SWAGGER pour mieux documenter tes API.
 	
 	@Autowired
@@ -27,7 +26,8 @@ public class SalarieController {
 
 	@PostMapping("/filtreSalarie")
 	public ResponseEntity<List<Salarie>> filtreSalarie(@RequestBody List<Salarie> salaries, @RequestParam String critere) throws FunctionalException{
-		System.out.println(critere);
+		//TODO Il ne faut jamais écrire ds la console en PROD !!!!
+		//System.out.println(critere);
 		return new ResponseEntity<List<Salarie>>(salarieService.filtreSalaries(salaries, critere), HttpStatus.OK);
 	}
 }

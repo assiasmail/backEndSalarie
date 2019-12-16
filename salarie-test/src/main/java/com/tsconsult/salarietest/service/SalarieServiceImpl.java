@@ -9,30 +9,34 @@ import org.springframework.stereotype.Service;
 
 import com.tsconsult.salarietest.exceptions.FunctionalException;
 import com.tsconsult.salarietest.model.Salarie;
-// Ce bout de code ressemble étrangement a celui de Mr Sadoud avec les même erreurs, alors qu'on peut le solutionner de plusieurs maniere ...
-// Essaies de faire avec un SWITCH et des énumétations.
-// Le throws Exception ne sert à rien ici.
-// d'une manière général les exceptions sont très mal gérées.
+
 
 @Service
 public class SalarieServiceImpl implements SalarieService{
+	// A quoi sert ces variables ?
+	// Quelle est la nécessité de les déclarer comme attributs de Class ?
 	Field field = null;
 	boolean exists = false;
-    public enum Critere {
 
+    public enum Critere {
+    	// TODO Best practices
+		// TODO On déclare les ENum en MAJESCULE
+		// TODO NOM, PRENOM, ....
         nom, prenom, adresse, dateEntree, dateNaissance;
     }
+
 	@Override
 	public List<Salarie> filtreSalaries(List<Salarie> salaries,String critere) throws FunctionalException {
 		System.out.println("service, critere :  " + critere);
 		List<Salarie> salariesFiltres = new ArrayList<>();
+		//TODO les exceptions sont bien gérés reste à savoir si la variable "critere" = null ou "";
 		try {
-		Critere critere1= Critere.valueOf(critere);
-		
+		//TODO Le programme va surement fonctionner, qu'en est-il des performances
+		// Je pense qu'on peut éviter la 2em boucle couteuse en perf.
 		salaries.stream().forEach(s -> {
 			exists= false;
 			 salariesFiltres.stream().forEach(sf -> {
-				 switch (critere1) {
+				 switch (Critere.valueOf(critere)) {
 					case nom:
 						if(s.getNom().equals(sf.getNom())) {
 							exists = true;
@@ -58,6 +62,7 @@ public class SalarieServiceImpl implements SalarieService{
 							exists = true;
 						}
 						break;
+						// TODO c'est dommage de renvoyer une exception pour les cas "Nom, Prénom, ADRESSE.
 						default:throw new FunctionalException("le critère selectioné est incorrect");	
 							
 				 }
