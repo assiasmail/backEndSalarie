@@ -27,7 +27,7 @@ public class SalarieController {
 	@PostMapping("/filtreSalarie")
 	public ResponseEntity<List<Salarie>> filtreSalarie(@RequestBody List<Salarie> salaries, @RequestParam String critere) throws FunctionalException{
 		//TODO Il ne faut jamais écrire ds la console en PROD !!!!
-		//System.out.println(critere);
+		
 		return new ResponseEntity<List<Salarie>>(salarieService.filtreSalaries(salaries, critere), HttpStatus.OK);
 	}
 }
