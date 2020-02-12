@@ -1,6 +1,10 @@
 package com.tsconsult.salarietest.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
 
 public class Salarie {
 
@@ -12,8 +16,10 @@ public class Salarie {
 	
 	private String adresse;
 	
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dateNaissance;
 	
+	@DateTimeFormat(iso = ISO.DATE)
 	private LocalDate dateEntree;
 	
 	
@@ -21,6 +27,18 @@ public class Salarie {
 	public Salarie() {
 		
 	}
+	
+	
+
+	public Salarie(String nom, String prenom, String adresse, LocalDate dateNaissance, LocalDate dateEntree) {
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.dateNaissance = dateNaissance;;
+		this.dateEntree = dateEntree;
+	}
+
+
 
 	public int getId() {
 		return id;

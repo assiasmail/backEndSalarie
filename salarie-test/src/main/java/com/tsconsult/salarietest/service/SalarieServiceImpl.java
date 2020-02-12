@@ -4,12 +4,9 @@ import java.text.Normalizer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Service;
-
 import com.tsconsult.salarietest.exceptions.FunctionalException;
 import com.tsconsult.salarietest.model.Salarie;
-
 
 @Service
 public class SalarieServiceImpl implements SalarieService{
@@ -75,8 +72,7 @@ public class SalarieServiceImpl implements SalarieService{
 					throw new FunctionalException("le critère est erroné");
 				}	
 		}
-		//TODO les exceptions sont bien gérés reste à savoir si la variable "critere" = null ou "";
-		
+		//TODO les exceptions sont bien gérés reste à savoir si la variable "critere" = null ou "";		
 		return salariesFiltres;
 		
 	}
